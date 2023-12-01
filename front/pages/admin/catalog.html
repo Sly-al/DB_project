@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Catalog</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Car Catalog</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Is New</th>
+        <th>Brand</th>
+        <th>Engine</th>
+        <th>Color</th>
+        <th>Transmission</th>
+        <th>Body</th>
+        <th>Price</th>
+    </tr>
+    {{range .}}
+    <tr>
+        <td>{{.Id}}</td>
+        <td>{{.Name}}</td>
+        <td>{{if .Is_new}}Yes{{else}}No{{end}}</td>
+        <td>{{.Brand}}</td>
+        <td>{{.Engine}}</td>
+        <td>{{.Color}}</td>
+        <td>{{.Transmission}}</td>
+        <td>{{.Body}}</td>
+        <td>{{.Price}}</td>
+    </tr>
+    {{end}}
+</table>
+</body>
+</html>
