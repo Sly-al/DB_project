@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<h1>Каталог:</h1>
+<h1>Выберите понравившуюся машину:</h1>
 <table>
     <tr>
         <th>ID</th>
@@ -39,6 +39,7 @@
         <th>Transmission</th>
         <th>Body</th>
         <th>Price</th>
+        <th>Choose Car</th> <!-- Новая колонка для радиокнопок -->
     </tr>
     {{range .}}
     <tr>
@@ -51,10 +52,14 @@
         <td>{{.Transmission}}</td>
         <td>{{.Body}}</td>
         <td>{{.Price}}</td>
+        <td><label>
+            <input type="radio" name="selectedCar" value="{{.Id}}">
+        </label></td>
     </tr>
     {{end}}
 </table>
 <br>
+<button>Сделать заказ</button>
 <button>Вернуться назад</button>
 </body>
 </html>

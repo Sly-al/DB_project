@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+<html lang="ru">
 <html>
 <head>
-    <title>Car Catalog</title>
+    <meta charset="UTF-8">
+    <title>Make order</title>
+    <link rel="stylesheet" href="/front/styles/main.css">
     <style>
         table {
             border-collapse: collapse;
@@ -24,7 +27,7 @@
     </style>
 </head>
 <body>
-<h1>Car Catalog</h1>
+<h1>Каталог:</h1>
 <table>
     <tr>
         <th>ID</th>
@@ -41,7 +44,7 @@
     <tr>
         <td>{{.Id}}</td>
         <td>{{.Name}}</td>
-        <td>{{if .Is_new}}Yes{{else}}No{{end}}</td>
+        <td>{{if .IsNew}}Yes{{else}}No{{end}}</td>
         <td>{{.Brand}}</td>
         <td>{{.Engine}}</td>
         <td>{{.Color}}</td>
@@ -51,5 +54,7 @@
     </tr>
     {{end}}
 </table>
+<br>
+<button>Вернуться назад</button>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/front/styles/main.css">
+    <title>Remove car</title>
+    <style>
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        input[type="radio"] {
+            display: inline;
+        }
+
+        .form-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Это страница удаления машины из каталог</h1>
+<form action="admin/remove_car" method="post">
+    <div class="form-container">
+        <form>
+            <label for="car">Выберите машину, которую хотите убрать из каталога:</label><br>
+            <select id="car" name="car">
+                <tr>
+                    <td>{{.Brand}} {{.Price}}</td>
+                </tr>
+            </select>
+        </form>
+    </div>
+    <button>Удалить выбранную машину из каталога</button>
+    <button>Вернуться назад</button>
+</form>
+</body>
+</html>
