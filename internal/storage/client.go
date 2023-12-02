@@ -53,3 +53,10 @@ func GetPassword(login string) (string, error) {
 	}
 	return password, nil
 }
+
+func InsertNewClient(neweclient structers.Client) error {
+	_, err := db.Exec(`INSERT INTO client (login, password, surname, name, status)
+VALUES ($1, $2, $3, $4, $5)`,
+		neweclient.Login, neweclient.Password, neweclient.Surname, neweclient.Name, neweclient.Status)
+	return err
+}
