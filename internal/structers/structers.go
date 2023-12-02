@@ -51,3 +51,12 @@ type Catalog struct {
 	Sale       int
 	ProductId  int
 }
+
+type Client struct {
+	Id       int
+	Login    string
+	Password string
+	Surname  string
+	Name     string
+	Status   string
+}

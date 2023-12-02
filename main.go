@@ -5,6 +5,7 @@ import (
 	"DB_project/internal/storage"
 	"fmt"
 	"log"
+	"time"
 )
 
 func main() {
@@ -15,7 +16,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = storage.UpdatePriceSale(1, 200, 2)
+
+	err = storage.CreateNewOrder(3, time.Now().AddDate(0, 0, 7))
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -23,7 +25,7 @@ func main() {
 	//router := chi.NewRouter()
 	//router.Handle("/front/*", http.StripPrefix("/front/", http.FileServer(http.Dir("front"))))
 	//router.Get("/", handlers.LoginPage)
-	//router.Post("/", handlers.GetLogin)
+	//router.Post("/", handlers.LoginPage)
 	//
 	//router.Get("/admin", handlers.AdminStartPage)
 	//router.Get("/admin/catalog", handlers.AdminCatalog)

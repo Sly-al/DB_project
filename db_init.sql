@@ -18,6 +18,8 @@ CREATE TABLE Supplier (
 
 CREATE TABLE Client (
                           id SERIAL NOT NULL,
+                          login TEXT NOT NULL,
+                          password TEXT NOT NULL,
                           surname TEXT NOT NULL,
                           name TEXT NOT NULL,
                           status TEXT NOT NULL,
@@ -112,9 +114,9 @@ INSERT INTO Catalog ("merchant_id", "price", "sale", "product_id") VALUES (1, 13
 
 
 --clients
-INSERT INTO Client ("surname", "name", "status") VALUES ('Petrov', 'Petr', 'Regular');
-INSERT INTO Client ("surname", "name", "status") VALUES ('Smith', 'John', 'Regular');
-INSERT INTO Client ("surname", "name", "status") VALUES ('Kozlov', 'Alexander', 'VIP');
+INSERT INTO Client ("login", "password", "surname", "name", "status") VALUES ('peter', '1', 'Petrov', 'Petr', 'Regular');
+INSERT INTO Client ("login", "password", "surname", "name", "status") VALUES ('sm', '2', 'Smith', 'John', 'Regular');
+INSERT INTO Client ("login", "password", "surname", "name", "status") VALUES ('ko', '3', 'Kozlov', 'Alexander', 'VIP');
 
 --orders
 INSERT INTO "Order" ("catalog_pos", "created_at", "delivered_at", "client_id") VALUES (3, '2022-05-06 12:33:44', '2022-06-06 12:33:44', 1);

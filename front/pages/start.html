@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Авторизация</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-    }
+    <title>Авторизация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
 
-    h1 {
-      color: #333;
-      text-align: center;
-    }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
 
-    form {
-      width: 300px;
-      margin: 0 auto;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 5px;
-    }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
 
-    label {
-      display: inline-block;
-      margin-bottom: 10px;
-    }
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
 
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      box-sizing: border-box;
-      margin-bottom: 15px;
-    }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
 
-    input[type="submit"] {
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>Авторизация</h1>
 <form method="post">
-  <label for="username">Логин:</label>
-  <input type="text" id="username" name="username" required><br><br>
+    <label for="username">Логин:</label>
+    <p>{{ .Error}}</p>
+    <input type="text" id="username" name="username" required><br><br>
 
-  <label for="password">Пароль:</label>
-  <input type="password" id="password" name="password" required><br><br>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required><br><br>
 
-  <input type="submit" value="Войти">
+    <input type="submit" value="Войти">
 </form>
 </body>
 </html>
