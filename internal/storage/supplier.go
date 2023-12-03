@@ -4,6 +4,42 @@ import (
 	"DB_project/internal/structers"
 )
 
+func SelectAllBrands() ([]string, error) {
+	rows, err := db.Query(`Select DISTINCT brand from supplier`)
+	if err != nil {
+		return nil, err
+	}
+	var brands []string
+	for rows.Next() {
+		var tmp string
+		err = rows.Scan(&tmp)
+		if err != nil {
+			return nil, err
+		}
+		brands = append(brands, tmp)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	return brands, nil
+}
+
+func SelectIdSup(brand string) (int, error) {
+	rows, err := db.Query(`SELECT id from supplier 
+          where brand = $1 `, brand)
+	if err != nil {
+		return 0, err
+	}
+	var id int
+	for rows.Next() {
+		err = rows.Scan(&id)
+		if err != nil {
+			return 0, err
+		}
+	}
+	return id, nil
+}
+
 func InsertNewSupplier(newsupplier structers.Supplier) error {
 	_, err := db.Exec(`
 	INSERT INTO supplier (brand, country, city, address) VALUES ($1, $2, $3, $4)`,

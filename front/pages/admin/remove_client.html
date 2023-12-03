@@ -34,16 +34,16 @@
 </head>
 <body>
 <h1>Это страница удаления покупателя из системы</h1>
-<form action="admin/remove_customer" method="post">
+<form action="/admin/remove_client" method="post">
   <div class="form-container">
-    <form>
       <label for="customer">Выберите покупателя, которого хотите убрать из системы:</label><br>
-      <select id="customer" name="customer">
-        <tr>
-          <td>{{.Login}}</td>
-        </tr>
+      <select name="login"
+              class="input_field">
+        {{ range .Logins }}
+          <option value={{ . }}></option>
+        {{ end }}
       </select>
-    </form>
+
   </div>
   <button>Удалить выбранного покупателя из системы</button>
   <button>Вернуться назад</button>

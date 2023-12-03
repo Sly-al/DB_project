@@ -34,75 +34,73 @@
 </head>
 <body>
 <h1>Это страница добавления новой машины в каталог</h1>
-<form action="admin/add_car" method="post">
+<form action="/admin/add_car" method="post">
     <div class="form-container">
-        <form>
             <label for="carName">Название машины:</label><br>
             <input type="text" id="carName" name="carName">
-        </form>
     </div>
     <div class="form-container">
-        <form>
+
             <label>Новая машина:</label><br>
             <label>
-                <input type="radio" id="newCarYes" name="newCar" value="yes">
+                <input type="radio" id="newCar" name="newCar" value="yes">
                 Да
             </label>
             <label>
-                <input type="radio" id="newCarNo" name="newCar" value="no">
+                <input type="radio" id="newCar" name="newCar" value="no">
                 Нет
             </label>
-        </form>
+
     </div>
     <div class="form-container">
-        <form>
+
             <label for="carBrand">Марка машины:</label><br>
             <select id="carBrand" name="carBrand">
-                <tr>
-                    <td>{{.Brand}}</td>
-                </tr>
+                    {{ range .Brands }}
+                        <option value={{ . }}></option>
+                    {{ end }}
             </select>
-        </form>
+
     </div>
     <div class="form-container">
-        <form>
+
             <label for="carEngine">Двигатель:</label><br>
             <select id="carEngine" name="carEngine">
-                <tr>
-                    <td>{{.Engine}}</td>
-                </tr>
+                {{ range .Engine }}
+                    <option value={{ . }}></option>
+                {{ end }}
             </select>
-        </form>
+
     </div>
     <div class="form-container">
-        <form>
+
             <label for="carTransmission">Трансмиссия:</label><br>
-            <select id="carTransmission" name="carEngine">
-                <tr>
-                    <td>{{.Transmission}}</td>
-                </tr>
+            <select id="carTransmission" name="carTransmission">
+                {{ range .Transmission  }}
+                    <option value={{ .}}></option>
+                {{ end }}
             </select>
-        </form>
+
     </div>
     <div class="form-container">
-        <form>
+
             <label for="carBody">Кузов:</label><br>
-            <select id="carBody" name="carEngine">
-                <tr>
-                    <td>{{.Body}}</td>
-                </tr>
+            <select id="carBody" name="carBody">
+                {{ range .Body }}
+                    <option value={{ . }}></option>
+                {{ end }}
             </select>
-        </form>
+
     </div>
     <div class="form-container">
-        <form>
+
             <label for="carColor">Цвет:</label><br>
-            <select id="carColor" name="carEngine">
-                <tr>
-                    <td>{{.Color}}</td>
-                </tr>
+            <select id="carColor" name="carColor">
+                {{ range .Color }}
+                    <option value={{ . }}></option>
+                {{ end }}
             </select>
-        </form>
+
     </div>
     <br>
     <button>Добавить новую машину в каталог</button>

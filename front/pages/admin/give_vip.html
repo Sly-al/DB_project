@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/front/styles/main.css">
+    <title>Update client status</title>
+    <style>
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        input[type="radio"] {
+            display: inline;
+        }
+
+        .form-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Это страница удаления покупателя из системы</h1>
+<form action="/admin/give_vip" method="post">
+    <div class="form-container">
+        <label for="customer">Выберите покупателя, которому хотите выдать статус VIP:</label><br>
+        <select name="login"
+                class="input_field">
+            {{ range .Logins }}
+                <option value={{ . }}></option>
+            {{ end }}
+        </select>
+
+    </div>
+    <button>Выдать статус VIP</button>
+    <button>Вернуться назад</button>
+</form>
+</body>
+</html>

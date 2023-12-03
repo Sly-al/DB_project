@@ -6,12 +6,12 @@ import (
 
 func SelectCatalog() ([]structers.Car, error) {
 	rows, err := db.Query(`
-	SELECT Car.id, Car.name, Car.is_new, Supplier.brand, Equipment.engine, Equipment.color, Equipment.transmission, Equipment.body, Catalog.price
+	SELECT Catalog.id, Car.name, Car.is_new, Supplier.brand, Equipment.engine, Equipment.color, Equipment.transmission, Equipment.body, Catalog.price
 	FROM Car
          	INNER JOIN Supplier ON Car.brand_id = Supplier.id
          	INNER JOIN Equipment ON Car.equipment_id = Equipment.id
          	INNER JOIN Catalog ON Catalog.product_id = Car.id
-	ORDER BY Car.id ASC;
+	ORDER BY Catalog.id ASC;
 	`)
 	if err != nil {
 		return nil, err
