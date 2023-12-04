@@ -96,7 +96,7 @@ func AdminVIPPage(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 400)
 		log.Fatalf("StartPage: %s", err.Error())
 	}
-	logins, err := storage.SelectAllClientLogins()
+	logins, err := storage.SelectAllRegularClientLogins()
 	if err != nil {
 		printAnswer(w, errorRes, err.Error())
 		return

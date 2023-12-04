@@ -9,6 +9,15 @@ import (
 	"net/http"
 )
 
+func contains(arr []string, elem string) bool {
+	for _, curElem := range arr {
+		if curElem == elem {
+			return false
+		}
+	}
+	return true
+}
+
 func AdminAddCar(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("front/pages/admin/add_car.html")
 	if err != nil {
@@ -21,13 +30,21 @@ func AdminAddCar(w http.ResponseWriter, r *http.Request) {
 		log.Fatalf("StartPage: %s", err.Error())
 	}
 
-	equipmets, err := storage.SelectAllEquipment()
+	equipments, err := storage.SelectAllEquipment()
 	var Engine, Color, Transmission, Body []string
-	for _, now := range equipmets {
-		Engine = append(Engine, now.Engine)
-		Color = append(Color, now.Color)
-		Transmission = append(Transmission, now.Transmission)
-		Body = append(Body, now.Body)
+	for _, now := range equipments {
+		if contains(Engine, now.Engine) {
+			Engine = append(Engine, now.Engine)
+		}
+		if contains(Color, now.Color) {
+			Color = append(Color, now.Color)
+		}
+		if contains(Transmission, now.Transmission) {
+			Transmission = append(Transmission, now.Transmission)
+		}
+		if contains(Body, now.Body) {
+			Body = append(Body, now.Body)
+		}
 	}
 	if err != nil {
 		http.Error(w, err.Error(), 400)

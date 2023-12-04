@@ -33,20 +33,19 @@
     </style>
 </head>
 <body>
-<h1>Это страница удаления покупателя из системы</h1>
+<h1>Это страница выдачи VIP прав</h1>
 <form action="/admin/give_vip" method="post">
     <div class="form-container">
         <label for="customer">Выберите покупателя, которому хотите выдать статус VIP:</label><br>
-        <select name="login"
-                class="input_field">
+        <select name="login" class="input_field" style="width: 100%;">
             {{ range .Logins }}
-                <option value={{ . }}></option>
+                <option value="{{ . }}">{{ . }}</option>
             {{ end }}
         </select>
 
+
     </div>
-    <button>Выдать статус VIP</button>
-    <button>Вернуться назад</button>
+    <button style="width: 100%;">Выдать статус VIP</button>
 </form>
 </body>
 </html>

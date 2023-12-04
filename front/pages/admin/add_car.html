@@ -55,56 +55,55 @@
     <div class="form-container">
 
             <label for="carBrand">Марка машины:</label><br>
-            <select id="carBrand" name="carBrand">
+            <select id="carBrand" name="carBrand" class="input_field" style="width: 100%;">
                     {{ range .Brands }}
-                        <option value={{ . }}></option>
+                        <option value="{{ . }}">{{ . }}</option>
                     {{ end }}
             </select>
 
-    </div>
+    </div><br>
     <div class="form-container">
 
             <label for="carEngine">Двигатель:</label><br>
-            <select id="carEngine" name="carEngine">
+            <select id="carEngine" name="carEngine" class="input_field" style="width: 100%;">
                 {{ range .Engine }}
-                    <option value={{ . }}></option>
+                    <option value="{{ . }}">{{ . }}</option>
                 {{ end }}
             </select>
 
-    </div>
+    </div><br>
     <div class="form-container">
 
             <label for="carTransmission">Трансмиссия:</label><br>
-            <select id="carTransmission" name="carTransmission">
+            <select id="carTransmission" name="carTransmission" class="input_field" style="width: 100%;">
                 {{ range .Transmission  }}
-                    <option value={{ .}}></option>
+                    <option value="{{ . }}">{{ . }}</option>
                 {{ end }}
             </select>
 
-    </div>
+    </div><br>
     <div class="form-container">
 
             <label for="carBody">Кузов:</label><br>
-            <select id="carBody" name="carBody">
+            <select id="carBody" name="carBody" class="input_field" style="width: 100%;">
                 {{ range .Body }}
-                    <option value={{ . }}></option>
+                    <option value="{{ . }}">{{ . }}</option>
                 {{ end }}
             </select>
 
-    </div>
+    </div><br>
     <div class="form-container">
 
             <label for="carColor">Цвет:</label><br>
-            <select id="carColor" name="carColor">
+            <select id="carColor" name="carColor" class="input_field" style="width: 100%;">
                 {{ range .Color }}
-                    <option value={{ . }}></option>
+                    <option value="{{ . }}">{{ . }}</option>
                 {{ end }}
             </select>
 
     </div>
     <br>
-    <button>Добавить новую машину в каталог</button>
-    <button>Вернуться назад</button>
+    <button style="width: 100%;">Добавить новую машину в каталог</button>
 </form>
 </body>
 </html>

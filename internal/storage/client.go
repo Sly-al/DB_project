@@ -74,6 +74,26 @@ func SelectAllClientLogins() ([]string, error) {
 	}
 	return logins, nil
 }
+func SelectAllRegularClientLogins() ([]string, error) {
+	rows, err := db.Query(`SELECT login from client where status = 'Regular' order by id`)
+	if err != nil {
+		return nil, err
+	}
+
+	var logins []string
+	for rows.Next() {
+		var login string
+		err = rows.Scan(&login)
+		if err != nil {
+			return nil, err
+		}
+		logins = append(logins, login)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	return logins, nil
+}
 
 func GetPassword(login string) (string, error) {
 	var password string
