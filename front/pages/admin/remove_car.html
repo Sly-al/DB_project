@@ -33,19 +33,19 @@
     </style>
 </head>
 <body>
-<h1>Это страница удаления машины из каталог</h1>
-<form action="admin/remove_car" method="post">
+<h1>Это страница удаления машины из каталога</h1>
+<form action="/admin/remove_car" method="post">
     <div class="form-container">
-        <form>
-            <label for="car">Выберите машину, которую хотите убрать из каталога:</label><br>
-            <select id="car" name="car">
-                <tr>
-                    <td>{{.Brand}} {{.Price}}</td>
-                </tr>
-            </select>
-        </form>
-    </div>
-    <button>Удалить выбранную машину из каталога</button>
+
+        <label for="carBrand">Марка машины:</label><br>
+        <select id="id" name="id" class="input_field" style="width: 100%;">
+            {{ range . }}
+                <option value={{ .Id }}>{{ .Name }}  {{ .Price }}</option>
+            {{ end }}
+        </select>
+
+    </div><br>
+    <button style="width: 100%;">Удалить выбранную машину из каталога</button>
 </form>
 </body>
 </html>

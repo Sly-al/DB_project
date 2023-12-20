@@ -33,9 +33,12 @@ func main() {
 	router.Get("/admin", handlers.AdminStartPage)
 	router.Get("/admin/catalog", handlers.AdminCatalog)
 	router.Get("/admin/edit_catalog", handlers.AdminEditCatalog)
+
 	router.Get("/admin/add_car", handlers.AdminAddCar)
 	router.Post("/admin/add_car", handlers.AddNewCar)
-	//router.Get("/admin/remove_car", handlers.AdminRemoveCar)
+
+	router.Get("/admin/remove_car", handlers.AdminRemoveCar)
+	router.Post("/admin/remove_car", handlers.AdminDeleteCar)
 
 	router.Get("/admin/edit_customers", handlers.AdminEditCustomers)
 	router.Get("/admin/add_client", handlers.AdminAddClient)

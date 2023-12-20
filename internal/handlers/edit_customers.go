@@ -40,12 +40,10 @@ func AdminInsertNewClient(w http.ResponseWriter, r *http.Request) {
 	newclient.Password = r.FormValue("customerPassword")
 	newclient.Surname = r.FormValue("customerSurname")
 	newclient.Name = r.FormValue("customerName")
-	regular := r.FormValue("statusRegular")
 	vip := r.FormValue("statusVIP")
-	if regular == "" {
-		newclient.Status = vip
-	} else {
-		newclient.Status = regular
+	newclient.Status = vip
+	if vip == "" {
+		newclient.Status = "Regular"
 	}
 	err := storage.InsertNewClient(newclient)
 	if err != nil {

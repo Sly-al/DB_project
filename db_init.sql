@@ -105,7 +105,7 @@ INSERT INTO Merchant ("name", "country", "city", "address") VALUES ('Genser', 'G
 
 --catalog
 INSERT INTO Catalog ("merchant_id", "price", "sale", "product_id") VALUES (1, 100, 10, 1);
-INSERT INTO Catalog ("merchant_id", "price", "sale", "product_id") VALUES (2, 150, 20, 1);
+INSERT INTO Catalog ("merchant_id", "price", "sale", "product_id") VALUES (2, 150, 20, 4);
 INSERT INTO Catalog ("merchant_id", "price", "sale", "product_id") VALUES (3, 200, 15, 2);
 INSERT INTO Catalog ("merchant_id", "price", "sale", "product_id") VALUES (1, 120, 5, 10);
 INSERT INTO Catalog ("merchant_id", "price", "sale", "product_id") VALUES (2, 180, 0, 5);
